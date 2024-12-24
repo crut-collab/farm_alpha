@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Стили -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" integrity="sha512-xnP2tOaCJnzp2d2IqKFcxuOiVCbuessxM6wuiolT9eeEJCyy0Vhcwa4zQvdrZNVqlqaxXhHqsSV1Ww7T2jSCUQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link href="{% static 'css/base.css' %}" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="{% static 'ico/favicon.ico' %}">
+
+	<!-- {% block extra_links %}
+	{% endblock %} -->
+	<title x-text="title"></title>
+</head>
+<body class="" x-data="data()">
+	<!-- Заголовок -->
+	{% include '../components/header.html' %}
+
+	<!-- Заставка -->
+	<div x-show="!mainQ && !no_headline" x-cloak>
+		{% include '../components/headline.html' %}
+	</div>
+	<div x-show="mainQ" x-cloak>
+		{% include '../components/headline_full.html' %}
+	</div>
+
+	<!-- Контент -->
+	<main class="p-2 p-lg-5" x-html="content">
+		<!-- {% block main %}
+		{% endblock %} -->
+	</main>
+
+	<!-- Дополнительный контент -->
+	<!-- {% block extra_content %}
+	{% endblock %} -->
+
+	<!-- Профиль -->
+
+	<!-- Подвал -->
+	{% include '../components/footer.html' %}
+
+	<!-- Скрипты -->
+	<script src="{% static 'js/constants.js' %}" defer></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+	<script src="{% static 'js/base.js' %}" defer></script>
+	<script src="{% static 'js/spa.js' %}" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.14.0/cdn.js" integrity="sha512-z6F6XBybddChHDc/36z8WZzvOW8pdlUKne6R5E7PGIo7v9S8AZF8vlhm2hbiAAjKpKbfO9K8Yer0w6U1xYsQjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+
+	<!-- {% block extra_scripts %}
+	{% endblock %} -->
+</body>
+</html>
